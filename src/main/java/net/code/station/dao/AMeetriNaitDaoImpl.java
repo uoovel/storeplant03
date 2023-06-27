@@ -13,7 +13,7 @@ import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 
 import net.code.station.model.AMeetriNait;
-import net.code.station.model.ArvestiNait;
+
 import net.code.station.model.Periood;
 
 public class AMeetriNaitDaoImpl implements AMeetriNaitDAO{

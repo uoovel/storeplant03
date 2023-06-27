@@ -15,7 +15,7 @@ import org.springframework.jdbc.core.RowMapper;
 
 import net.code.station.model.AMeetriNait;
 import net.code.station.model.JaamaVoimsus;
-import net.code.station.model.Pakkumine;
+import net.code.station.model.Offer;
 
 public class JaamaVoimsusDaoImpl implements JaamaVoimsusDAO{
 private JdbcTemplate jdbcTemplate;
@@ -44,8 +44,8 @@ private JdbcTemplate jdbcTemplate;
 		return jdbcTemplate.query(sql, rowMapper);
 	}
 	@Override
-	public Integer getmaxPakkumine(Integer perioodid) {
-		System.out.println("JaamaVoimsusDaoImpl>getmaxPakkumine");
+	public Integer getmaxOffer(Integer perioodid) {
+		System.out.println("JaamaVoimsusDaoImpl>getmaxOffer");
 		//järg
 		String sql = "SELECT MAX(pakutav) AS maxpakutav FROM jaamavoimsus WHERE perioodid=" + perioodid;
 		

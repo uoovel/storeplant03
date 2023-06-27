@@ -10,7 +10,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 
 import net.code.station.model.Hind;
-import net.code.station.model.KliendiArvesti;
+
 
 public class HindDaoImpl implements HindDAO {
 	private JdbcTemplate jdbcTemplate;

@@ -4,7 +4,6 @@ import java.sql.Date;
 import java.sql.Timestamp;
 
 import net.code.station.model.Contact;
-import net.code.station.model.Pakkumine;
 import net.code.station.model.Periood;
 import net.code.station.model.Staatus;
 

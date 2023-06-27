@@ -9,7 +9,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 
-import net.code.station.model.Arvesti;
+
 import net.code.station.model.Bilansihaldur;
 
 public class BilansihaldurDaoImpl implements BilansihaldurDAO {

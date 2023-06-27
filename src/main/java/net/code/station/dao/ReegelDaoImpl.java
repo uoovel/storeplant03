@@ -9,7 +9,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 
-import net.code.station.model.Arvesti;
+
 import net.code.station.model.Reegel;
 
 public class ReegelDaoImpl implements ReegelDAO{

@@ -17,10 +17,10 @@ import net.code.station.dao.AMeetriNaitDAO;
 import net.code.station.dao.StaatusDAO;
 import net.code.station.model.AMeetriNait;
 import net.code.station.model.Contact;
-import net.code.station.model.Pakkumine;
+
 import net.code.station.model.Periood;
 import net.code.station.model.Staatus;
-import net.code.station.model.Tellimus;
+import net.code.station.model.ClientOrder;
 import net.code.station.viewmodel.AjaparingView;
 
 

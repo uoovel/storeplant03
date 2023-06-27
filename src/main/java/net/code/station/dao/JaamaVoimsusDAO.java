@@ -8,7 +8,7 @@ import net.code.station.model.JaamaVoimsus;
 public interface JaamaVoimsusDAO {
 	public List<JaamaVoimsus> list();
 
-	public Integer getmaxPakkumine(Integer perioodid);
+	public Integer getmaxOffer(Integer perioodid);
 	
 	public int update(JaamaVoimsus jaamaVoimsus);
 

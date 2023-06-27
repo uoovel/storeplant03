@@ -14,28 +14,28 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import net.code.station.dao.AMeetriNaitDAO;
-import net.code.station.dao.ArvestiDAO;
+import net.code.station.dao.MeterDAO;
 import net.code.station.dao.JaamaVoimsusDAO;
 import net.code.station.dao.PerioodDAO;
-import net.code.station.dao.TellimusDAO;
+import net.code.station.dao.ClientOrderDAO;
 import net.code.station.model.AMeetriNait;
-import net.code.station.model.Arvesti;
+import net.code.station.model.Meter;
 import net.code.station.model.Contact;
 import net.code.station.model.JaamaVoimsus;
-import net.code.station.model.KliendiArvesti;
-import net.code.station.model.Pakkumine;
+
+
 import net.code.station.model.Periood;
 import net.code.station.model.Reegel;
-import net.code.station.model.Tellimus;
+import net.code.station.model.ClientOrder;
 
 @Controller
 public class JaamaVoimsusController {
 	@Autowired
 	private JaamaVoimsusDAO jaamavoimsusDAO;
 	@Autowired
-	private TellimusDAO tellimusDAO;
+	private ClientOrderDAO tellimusDAO;
 	@Autowired
-	private ArvestiDAO arvestiDAO;
+	private MeterDAO arvestiDAO;
 	@Autowired
 	private PerioodDAO perioodDAO;
 
@@ -52,7 +52,7 @@ public class JaamaVoimsusController {
 	}
 	
 //	@RequestMapping(value = "/valiperioodvoimsusele", method = RequestMethod.GET)
-//	public ModelAndView valiPerioodTellimuselel(ModelAndView model, 
+//	public ModelAndView valiPerioodClientOrderelel(ModelAndView model, 
 //			@ModelAttribute JaamaVoimsus jaamaVoimsus) {		
 //		
 //		Integer perioodid = jaamaVoimsus.getPerioodid();
@@ -86,20 +86,20 @@ public class JaamaVoimsusController {
 		Integer perioodid = Integer.parseInt(request.getParameter("perioodid"));
 		//System.out.println("arvutaToovoimsus>perioodid: " + perioodid);
 		Integer tellimuseVoimsus = 0;//jarg
-		List<Tellimus> listTellimus = tellimusDAO.listByPeriood(perioodid);
-		for (int i = 0; i < listTellimus.size(); i++) {
-			Tellimus tellimus1 = listTellimus.get(i);
-			Integer arvestiid = tellimus1.getArvestiid();
+		List<ClientOrder> listClientOrder = tellimusDAO.listByPeriood(perioodid);
+		for (int i = 0; i < listClientOrder.size(); i++) {
+			ClientOrder tellimus1 = listClientOrder.get(i);
+			Integer arvestiid = tellimus1.getMeterid();
 			
-		    Arvesti arvesti = arvestiDAO.get(arvestiid);
+		    Meter arvesti = arvestiDAO.get(arvestiid);
 		    Integer peavoimsus = arvesti.getPeavoimsus();
 		    tellimuseVoimsus = tellimuseVoimsus + peavoimsus;
 		}
 		
-		//Integer tellimusteArv = tellimusDAO.getmaxTellimus(perioodid);
-		Integer maxTellimusteSumma = tellimuseVoimsus; 
+		//Integer tellimusteArv = tellimusDAO.getmaxClientOrder(perioodid);
+		Integer maxClientOrderteSumma = tellimuseVoimsus; 
 		
-		Double perioodiMaxTooVoimsus = maxTellimusteSumma * 0.7;//Yheaegsustegur		
+		Double perioodiMaxTooVoimsus = maxClientOrderteSumma * 0.7;//Yheaegsustegur		
 		Integer perioodiMaxPakutav = perioodDAO.getMaxPakutav(perioodid);
 		List<JaamaVoimsus> listJaamaVoimsus = jaamavoimsusDAO.listByPeriood(perioodid);
 		

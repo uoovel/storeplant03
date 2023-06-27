@@ -15,10 +15,10 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import net.code.station.dao.AMeetriNaitDAO;
 import net.code.station.dao.AMeetriNaitDaoImpl;
-import net.code.station.dao.ArvestiDAO;
-import net.code.station.dao.ArvestiDaoImpl;
-import net.code.station.dao.ArvestiNaitDAO;
-import net.code.station.dao.ArvestiNaitDaoImpl;
+import net.code.station.dao.MeterDAO;
+import net.code.station.dao.MeterDaoImpl;
+import net.code.station.dao.MeterStateDAO;
+import net.code.station.dao.MeterStateDaoImpl;
 import net.code.station.dao.BilansihaldurDAO;
 import net.code.station.dao.BilansihaldurDaoImpl;
 import net.code.station.dao.ContactDAO;
@@ -29,20 +29,20 @@ import net.code.station.dao.JaamaVoimsusDAO;
 import net.code.station.dao.JaamaVoimsusDaoImpl;
 import net.code.station.dao.KasutajaRollisDAO;
 import net.code.station.dao.KasutajaRollisDaoImpl;
-import net.code.station.dao.KliendiArvestiDAO;
-import net.code.station.dao.KliendiArvestiDaoImpl;
-import net.code.station.dao.PakkumineDAO;
-import net.code.station.dao.PakkumineDaoImpl;
+import net.code.station.dao.ClientMeterDAO;
+import net.code.station.dao.ClientMeterDaoImpl;
+import net.code.station.dao.OfferDAO;
+import net.code.station.dao.OfferDaoImpl;
 import net.code.station.dao.PerioodDAO;
 import net.code.station.dao.PerioodDaoImpl;
 import net.code.station.dao.ReegelDAO;
 import net.code.station.dao.ReegelDaoImpl;
 import net.code.station.dao.StaatusDAO;
 import net.code.station.dao.StaatusDaoImpl;
-import net.code.station.dao.TarbitudEnergiaDAO;
-import net.code.station.dao.TarbitudEnergiaDaoImpl;
-import net.code.station.dao.TellimusDAO;
-import net.code.station.dao.TellimusDaoImpl;
+import net.code.station.dao.ConsumedEnergyDAO;
+import net.code.station.dao.ConsumedEnergyDaoImpl;
+import net.code.station.dao.ClientOrderDAO;
+import net.code.station.dao.ClientOrderDaoImpl;
 import net.code.station.dao.UserDAO;
 import net.code.station.dao.UserDaoImpl;
 
@@ -81,23 +81,23 @@ public class SpringMvcConfig implements WebMvcConfigurer {
 		return dao;
 	}
 	@Bean
-    PakkumineDAO getPakkumineDAO() {
-		PakkumineDAO dao = new PakkumineDaoImpl(getDataSource());
+    OfferDAO getOfferDAO() {
+		OfferDAO dao = new OfferDaoImpl(getDataSource());
 		return dao;
 	}
 	@Bean
-	public TellimusDAO getTellimusDAO() {
-		TellimusDAO dao = new TellimusDaoImpl(getDataSource());
+	public ClientOrderDAO getClientOrderDAO() {
+		ClientOrderDAO dao = new ClientOrderDaoImpl(getDataSource());
 		return dao;
 	}
 	@Bean
-	public ArvestiNaitDAO getArvestiNaitDAO() {
-		ArvestiNaitDAO dao = new ArvestiNaitDaoImpl(getDataSource());
+	public MeterStateDAO getMeterStateDAO() {
+		MeterStateDAO dao = new MeterStateDaoImpl(getDataSource());
 		return dao;
 	}
 	@Bean
-	public KliendiArvestiDAO getKliendiArvestiDAO() {
-		KliendiArvestiDAO dao = new KliendiArvestiDaoImpl(getDataSource());
+	public ClientMeterDAO getClientMeterDAO() {
+		ClientMeterDAO dao = new ClientMeterDaoImpl(getDataSource());
 		return dao;
 	}
 	@Bean
@@ -109,8 +109,8 @@ public class SpringMvcConfig implements WebMvcConfigurer {
 		return new KasutajaRollisDaoImpl(getDataSource());
 	}
 	@Bean
-	public TarbitudEnergiaDAO getTarbitudEnergiaDAO() {
-		return new TarbitudEnergiaDaoImpl(getDataSource());
+	public ConsumedEnergyDAO getConsumedEnergyDAO() {
+		return new ConsumedEnergyDaoImpl(getDataSource());
 	}
 	@Bean
 	public PerioodDAO getPerioodDAO() {
@@ -133,8 +133,8 @@ public class SpringMvcConfig implements WebMvcConfigurer {
 		return new JaamaVoimsusDaoImpl(getDataSource());
 	}
 	@Bean
-	public ArvestiDAO getArvestiDAO() {
-		return new ArvestiDaoImpl(getDataSource());
+	public MeterDAO getMeterDAO() {
+		return new MeterDaoImpl(getDataSource());
 	}
 	@Bean
 	public ReegelDAO getReegelDAO() {
