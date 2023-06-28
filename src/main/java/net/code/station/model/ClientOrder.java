@@ -10,7 +10,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class ClientOrder {
 	private Integer id;	
 	@Min(value=1, message = "Palun vali pakkumine")
-	private Integer pakkumineid;
+	private Integer offerid;
 	private Integer klientid;
 	private Date alates;
 	private Date kuni;
@@ -18,7 +18,7 @@ public class ClientOrder {
 	private Integer perioodid;
 	private Integer staatusid;
 	@Min(value=1, message = "Palun vali arvesti")
-	private Integer arvestiid;
+	private Integer meterid;
 	private String userName;
 	
 	public ClientOrder() {
@@ -35,13 +35,13 @@ public class ClientOrder {
 	public ClientOrder(Integer pakkumineid, Integer klientid, 
 			Date alates, Date kuni,
 			Integer perioodid, Integer staatusid, Integer arvestiid, String userName) {
-		this.pakkumineid = pakkumineid;
+		this.offerid = pakkumineid;
 		this.klientid = klientid;
 		this.alates = alates;
 		this.kuni = kuni;
 		this.perioodid = perioodid;
 		this.staatusid = staatusid;
-		this.arvestiid = arvestiid;
+		this.meterid = arvestiid;
 		this.userName = userName;
 	}
 	public String getUserName() {
@@ -61,11 +61,11 @@ public class ClientOrder {
 	}
 
 	public Integer getOfferid() {
-		return pakkumineid;
+		return offerid;
 	}
 
 	public void setOfferid(Integer pakkumineid) {
-		this.pakkumineid = pakkumineid;
+		this.offerid = pakkumineid;
 	}
 
 	public Integer getKlientid() {
@@ -111,16 +111,16 @@ public class ClientOrder {
 	
 
 	public Integer getMeterid() {
-		return arvestiid;
+		return meterid;
 	}
 
 	public void setMeterid(Integer arvestiid) {
-		this.arvestiid = arvestiid;
+		this.meterid = arvestiid;
 	}
 
 	@Override
 	public String toString() {
-		return "ClientOrder [id=" + id + ", pakkumineid=" + pakkumineid + ", klientid=" + klientid + ", alates=" + alates + ", kuni=" + kuni + "]";
+		return "ClientOrder [id=" + id + ", pakkumineid=" + offerid + ", klientid=" + klientid + ", alates=" + alates + ", kuni=" + kuni + "]";
 	}
 	
 	

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Salvestuselektrijaam</title>
+<title>Storage power plant</title>
 <s:url var="url_css" value="/static/css/style.css"/>
 <link href="${url_css}" rel="stylesheet" type="text/css"/>
 <link href="static/css/style.css"/>

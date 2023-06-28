@@ -14,7 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
 import net.code.station.dao.MeterDAO;
-import net.code.station.dao.BilansihaldurDAO;
+import net.code.station.dao.EnergyProviderDAO;
 import net.code.station.dao.ContactDAO;
 import net.code.station.dao.JaamaVoimsusDAO;
 import net.code.station.dao.ClientMeterDAO;
@@ -25,7 +25,7 @@ import net.code.station.dao.StaatusDAO;
 import net.code.station.dao.ClientOrderDAO;
 import net.code.station.dao.UserDAO;
 import net.code.station.model.Meter;
-import net.code.station.model.Bilansihaldur;
+import net.code.station.model.EnergyProvider;
 import net.code.station.model.Contact;
 import net.code.station.model.ClientMeter;
 import net.code.station.model.Offer;
@@ -76,7 +76,7 @@ public class ClientOrderControllerAux {
 			OfferDAO pakkumineDAO,	JaamaVoimsusDAO jaamavoimsusDAO, 
 			ClientOrderDAO tellimusDAO, MeterDAO arvestiDAO, 
 			ClientMeterDAO kliendiarvestiDAO, ReegelDAO reegelDAO,
-			BilansihaldurDAO bilansihaldurDAO, HttpServletResponse response)
+			EnergyProviderDAO bilansihaldurDAO, HttpServletResponse response)
 					throws IOException{		
 		Integer userid = userDAO.getUserIdByUName(userName);
 		Contact klient = klientDAO.getByUserId(userid);
@@ -99,7 +99,7 @@ public class ClientOrderControllerAux {
 	}
 
 	private String koostaTeade(ClientMeterDAO kliendiarvestiDAO, MeterDAO arvestiDAO, ReegelDAO reegelDAO,
-			BilansihaldurDAO bilansihaldurDAO, Integer klientid, Periood periood) {
+			EnergyProviderDAO bilansihaldurDAO, Integer klientid, Periood periood) {
 		ClientMeter kliendiArvesti = kliendiarvestiDAO.getMeterId(klientid);
 		Integer arvestiid = kliendiArvesti.getMeterid();
 		Meter arvesti = arvestiDAO.get(arvestiid);
@@ -107,8 +107,8 @@ public class ClientOrderControllerAux {
 		Reegel reegel = reegelDAO.getActiveRule();
 		Integer reegelid = reegel.getId();
 		if(reegelid == 1) {								
-			Integer bilansihaldurid = arvesti.getBilansihaldurid();
-			Bilansihaldur bilansihaldur = bilansihaldurDAO.get(bilansihaldurid);
+			Integer bilansihaldurid = arvesti.getEnergyProviderid();
+			EnergyProvider bilansihaldur = bilansihaldurDAO.get(bilansihaldurid);
 			teade = "Soovitud perioodiks tellimust esitada ei saa: " 
 			+ periood.getPerNimetus()
 			+ " Nimetatud perioodil on Teie elektri pakkujaks: "
@@ -166,7 +166,9 @@ public class ClientOrderControllerAux {
 			MeterDAO arvestiDAO, String userName, OfferDAO pakkumineDAO) {
 		//List<Contact> listKlient = klientDAO.list();
 		Integer perioodid = periood.getId();
+		System.out.println("ClientOrderControllerAux>lisaAtribuudidKorrektsele100: " + perioodid);
 		List<Offer> listOffer = pakkumineDAO.listByPeriood(perioodid);
+		
 		model.addAttribute("klient", klient);	   
 		model.addAttribute("listOffer", listOffer);		
 		model.addAttribute("periood", periood);

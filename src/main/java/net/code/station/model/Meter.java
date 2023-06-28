@@ -50,11 +50,11 @@ public class Meter {
 	}
 	
 
-	public Integer getBilansihaldurid() {
+	public Integer getEnergyProviderid() {
 		return bilansihaldurid;
 	}
 
-	public void setBilansihaldurid(Integer bilansihaldurid) {
+	public void setEnergyProviderid(Integer bilansihaldurid) {
 		this.bilansihaldurid = bilansihaldurid;
 	}
 

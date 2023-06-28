@@ -10,27 +10,27 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 
 
-import net.code.station.model.Bilansihaldur;
+import net.code.station.model.EnergyProvider;
 
-public class BilansihaldurDaoImpl implements BilansihaldurDAO {
+public class EnergyProviderDaoImpl implements EnergyProviderDAO {
 	private JdbcTemplate jdbcTemplate;
 	
-	public BilansihaldurDaoImpl(DataSource dataSource) {
+	public EnergyProviderDaoImpl(DataSource dataSource) {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 
 	@Override
-	public Bilansihaldur get(Integer bilansihaldurid) {
+	public EnergyProvider get(Integer bilansihaldurid) {
 		String sql = "SELECT * FROM bilansihaldur WHERE bilansihaldurid=" + bilansihaldurid;		
-		ResultSetExtractor<Bilansihaldur> extractor = new ResultSetExtractor<Bilansihaldur>() {
+		ResultSetExtractor<EnergyProvider> extractor = new ResultSetExtractor<EnergyProvider>() {
 			@Override
-			public Bilansihaldur extractData(ResultSet rs) throws SQLException, DataAccessException {
+			public EnergyProvider extractData(ResultSet rs) throws SQLException, DataAccessException {
 				if (rs.next()) {
 					String nimetus = rs.getString("nimetus");
 					
 					
 					
-					return new Bilansihaldur(bilansihaldurid, nimetus);
+					return new EnergyProvider(bilansihaldurid, nimetus);
 				}
 				return null;
 			}

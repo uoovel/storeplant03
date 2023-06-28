@@ -30,7 +30,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import net.code.station.dao.MeterDAO;
-import net.code.station.dao.BilansihaldurDAO;
+import net.code.station.dao.EnergyProviderDAO;
 import net.code.station.dao.ContactDAO;
 import net.code.station.dao.JaamaVoimsusDAO;
 import net.code.station.dao.ClientMeterDAO;
@@ -41,7 +41,7 @@ import net.code.station.dao.StaatusDAO;
 import net.code.station.dao.ClientOrderDAO;
 import net.code.station.dao.UserDAO;
 import net.code.station.model.Meter;
-import net.code.station.model.Bilansihaldur;
+import net.code.station.model.EnergyProvider;
 import net.code.station.model.Contact;
 import net.code.station.model.ClientMeter;
 import net.code.station.model.Offer;
@@ -73,7 +73,7 @@ public class ClientOrderController {
 	@Autowired
 	private ReegelDAO reegelDAO;
 	@Autowired
-	private BilansihaldurDAO bilansihaldurDAO;
+	private EnergyProviderDAO bilansihaldurDAO;
 	@Autowired
 	private UserDAO userDAO;
 	private ClientOrderControllerAux tellimusControllerAux = new ClientOrderControllerAux();

@@ -1,19 +1,19 @@
 package net.code.station.model;
 
-public class Bilansihaldur {
+public class EnergyProvider {
 	private Integer id;
 	private String nimetus;
 	
 	
-    public Bilansihaldur() {
+    public EnergyProvider() {
 		
 	}
 	
-	public Bilansihaldur(Integer id, String nimetus) {		
+	public EnergyProvider(Integer id, String nimetus) {		
 		this(nimetus);
 		this.id = id;
 	}
-	public Bilansihaldur(String nimetus) {
+	public EnergyProvider(String nimetus) {
 		this.nimetus = nimetus;
 	}
 

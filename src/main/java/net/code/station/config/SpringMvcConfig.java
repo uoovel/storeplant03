@@ -19,8 +19,8 @@ import net.code.station.dao.MeterDAO;
 import net.code.station.dao.MeterDaoImpl;
 import net.code.station.dao.MeterStateDAO;
 import net.code.station.dao.MeterStateDaoImpl;
-import net.code.station.dao.BilansihaldurDAO;
-import net.code.station.dao.BilansihaldurDaoImpl;
+import net.code.station.dao.EnergyProviderDAO;
+import net.code.station.dao.EnergyProviderDaoImpl;
 import net.code.station.dao.ContactDAO;
 import net.code.station.dao.ContactDaoImpl;
 import net.code.station.dao.HindDAO;
@@ -141,8 +141,8 @@ public class SpringMvcConfig implements WebMvcConfigurer {
 		return new ReegelDaoImpl(getDataSource());
 	}
 	@Bean
-	public BilansihaldurDAO getBilansihaldurDAO() {
-		return new BilansihaldurDaoImpl(getDataSource());
+	public EnergyProviderDAO getEnergyProviderDAO() {
+		return new EnergyProviderDaoImpl(getDataSource());
 	}
 
 }
